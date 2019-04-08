@@ -1,11 +1,9 @@
 package com.sermatec.energy_meter;
 
-import com.alibaba.fastjson.JSONObject;
-import com.sermatec.energy_meter.entity.User;
 import com.sermatec.energy_meter.service.EnergyMeterService;
 import com.sermatec.energy_meter.service.RedisService;
 import com.sermatec.energy_meter.service.UserService;
-import com.sermatec.energy_meter.utils.SpringContextHolder;
+import com.sermatec.common.utils.SpringContextHolder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;

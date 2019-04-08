@@ -1,4 +1,4 @@
-package com.sermatec.energy_meter.utils;
+package com.sermatec.common.utils;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;

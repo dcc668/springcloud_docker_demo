@@ -25,6 +25,7 @@
                 <mysql.password>1234</mysql.password>
                 <redis.host>192.168.192.132</redis.host>
                 <admin.client.url>http://192.168.192.131:8888</admin.client.url>
+                <eureka.server.port>8761</eureka.server.port>
                 <eureka.server.url>http://192.168.192.131:8761/eureka/</eureka.server.url>
                 <sermatic_energy.port>8181</sermatic_energy.port>
                 <redis_base.port>8182</redis_base.port>

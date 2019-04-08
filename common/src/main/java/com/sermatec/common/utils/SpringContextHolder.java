@@ -1,4 +1,4 @@
-package com.sermatec.energy_meter.utils;
+package com.sermatec.common.utils;
 
 import org.springframework.context.ApplicationContext;
 
