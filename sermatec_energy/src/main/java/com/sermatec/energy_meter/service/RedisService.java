@@ -1,36 +1,27 @@
 package com.sermatec.energy_meter.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.core.StringRedisTemplate;
-import org.springframework.stereotype.Service;
-
-import java.util.concurrent.TimeUnit;
+import com.sermatec.energy_meter.service.fallback.RedisServiceFallback;
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * @author : DongChenchen
- * @date : 2019/4/4  10:21
+ * @date : 2019/4/8  11:09
  */
-@Service
-public class RedisService {
-    @Autowired
-    RedisTemplate redisTemplate;  //k-v都是对象的
-    @Autowired
-    StringRedisTemplate stringRedisTemplate;  //k-v都是对象的
-    public void save(){
-        stringRedisTemplate.opsForValue().append("cc","hello");
-        String msg = stringRedisTemplate.opsForValue().get("cc");
-        System.out.println(msg);
-    }
-    public Object get(String key) {
-        return redisTemplate.opsForValue().get(key);
-    }
+@FeignClient(value = "redis-base",fallback = RedisServiceFallback.class)
+public interface RedisService {
 
-    public void set(String key, Object value) {
-        redisTemplate.opsForValue().set(key, value);
-    }
+    @RequestMapping(value = "set",method = RequestMethod.POST)
+    public String set(@RequestParam(value = "key") String key,
+                    @RequestParam(value = "value") String value);
+    @RequestMapping(value = "set_with_time", method = RequestMethod.POST)
+    public String set_with_time(
+            @RequestParam(value = "key") String key,
+            @RequestParam(value = "value") String value,
+            @RequestParam(value = "seconds") int seconds);
 
-    public void set(String key, Object value, int seconds) {
-        redisTemplate.opsForValue().set(key, value, seconds, TimeUnit.SECONDS);
-    }
+    @RequestMapping(value = "get", method = RequestMethod.GET)
+    public String get(@RequestParam(value = "key") String key);
 }

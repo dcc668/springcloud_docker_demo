@@ -1,4 +1,4 @@
-package com.sermatec.energy_meter.config;
+package com.sermatec.redis_base.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -25,7 +25,7 @@ import java.time.Duration;
  */
 @Configuration
 public class MyRedisConfig {
-    @Bean("myRedisTemplate")
+    @Bean
     public RedisTemplate<String, Object> myRedisTemplate(
             RedisConnectionFactory redisConnectionFactory){
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);

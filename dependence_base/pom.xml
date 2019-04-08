@@ -20,13 +20,14 @@
         <profile>
             <id>dev</id>
             <properties>
-                <mysql.url>jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</mysql.url>
+                <mysql.url>jdbc:mysql://192.168.192.132:3306/test?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</mysql.url>
                 <mysql.username>root</mysql.username>
-                <mysql.password>root</mysql.password>
+                <mysql.password>1234</mysql.password>
                 <redis.host>192.168.192.132</redis.host>
                 <admin.client.url>http://192.168.192.131:8888</admin.client.url>
                 <eureka.server.url>http://192.168.192.131:8761/eureka/</eureka.server.url>
-                <servers.port>8183</servers.port>
+                <sermatic_energy.port>8181</sermatic_energy.port>
+                <redis_base.port>8182</redis_base.port>
             </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
